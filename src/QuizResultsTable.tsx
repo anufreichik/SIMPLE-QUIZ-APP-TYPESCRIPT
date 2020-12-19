@@ -5,6 +5,7 @@ import {FcCheckmark} from "react-icons/all";
 
 function QuizResultsTable(props: IPropsQuizResultsTable) {
     return (
+        <>
         <div className="container w-75 mx-auto border border-primary">
             <div className="row font-weight-bold text-muted text-center text-capitalize mb-3 shadow">
                 <div className="col-2">Correct</div>
@@ -26,7 +27,12 @@ function QuizResultsTable(props: IPropsQuizResultsTable) {
 
                 </div>
             )}
+
         </div>
+            <div className="container w-75 mx-auto">
+            <button className="btn btn-primary mt-2 float-md-right" onClick={()=>props.startover()}>Start Over</button>
+            </div>
+            </>
     );
 }
 

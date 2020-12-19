@@ -13,4 +13,5 @@ export interface IResult{
 
 export interface IPropsQuizResultsTable{
     quizresults: IResult[];
+    startover:()=>void;
 }

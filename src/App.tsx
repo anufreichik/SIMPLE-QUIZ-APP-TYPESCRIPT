@@ -20,9 +20,13 @@ function App() {
         return question;
     }
 
+    //array of generated questions
     const [quizResults, setQuizResults] = useState<IResult[]>([]);
+    //init question(first one)
     const initQuestion: IQuestion = generateQuestion();
+    //current questions
     const [currentQuestion, setCurrentQuestion] = useState<IQuestion>(initQuestion);
+    //state variables to control some UI
     const [showMessage, setShowMessage] = useState(false);
     const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
 
@@ -74,6 +78,11 @@ function App() {
     }
     //******************************************************************************************************************
 
+    const startOver=()=>{
+        setQuizResults([]);
+        setShowMessage(false);
+        setCurrentQuestion(generateQuestion());
+    }
     if (!currentQuestion) return null;
 
     return (
@@ -92,7 +101,7 @@ function App() {
 
             {
                 quizResults.length === MAX_QUESTIONS &&
-                <QuizResultsTable quizresults={quizResults}/>
+                <QuizResultsTable quizresults={quizResults} startover={startOver}/>
             }
         </div>
     );
